@@ -1,0 +1,1651 @@
+{
+  "title": "Handbook ParknGo",
+  "version": "V1.0.0",
+  "heroImage": "/assets/handbook/image1.png",
+  "figureIndex": [
+    "Hình 1: Tính năng chuyển đổi dữ liệu 6",
+    "Hình 2: Cấu hình các thông tin cần thiết 7",
+    "Hình 3: Chuyển đổi database 8",
+    "Hình 4: SQL Server 9",
+    "Hình 5: Truy vấn dữ liệu trong Database 10",
+    "Hình 6: Điền thông tin cấu hình database 11",
+    "Hình 7: Chọn loại xe cho thẻ xe 11",
+    "Hình 8: Hiển thị và kiểm tra thông tin thẻ 12",
+    "Hình 9: Import dữ liệu vào hệ thống 13",
+    "Hình 10: Giới hạn ngày đồng bộ 14",
+    "Hình 11: Đồng bộ hình ảnh xe trong bãi 15",
+    "Hình 12: Đặt lại dữ liệu vừa mới chuyển đổi (xóa dữ liệu) 15",
+    "Hình 13: Nhập mật khẩu để xóa dữ liệu 16",
+    "Hình 14: Nút lưu phân quyền theo trang 17",
+    "Hình 15: Đặt lại mật khẩu cho tài khoản 17",
+    "Hình 16: Nút nhận diện biển số 18",
+    "Hình 17: Báo cáo sử dụng thẻ VIP 19",
+    "Hình 18: Vào ra tất cả các cổng 20",
+    "Hình 19: Cấu hình làn trong cổng 20",
+    "Hình 20: Cảnh báo hiển thị ở client (vận hành) 21",
+    "Hình 21: Nhập thông tin port ip vào mạch điều khiển 21",
+    "Hình 22: Minh họa thông tin device gateway 22",
+    "Hình 23: Minh họa thông tin kiến trúc tổng thể thông qua device gateway 23",
+    "Hình 24: Device gateway ở taskbar 23",
+    "Hình 25: Chọn Admin để xem chi tiết Device gateway 24",
+    "Hình 26: Chi tiết thông tin trong Device gateway 24",
+    "Hình 27: Thông tin kết nối mạch trong Device gateway 25",
+    "Hình 28: Minh họa xem thông tin kết nối mạch thông qua Device gateway 26",
+    "Hình 29: Tự động mở barrier 27",
+    "Hình 30: Cấu hình mở barrier tự động với vé lượt 28",
+    "Hình 31: Nhận diện biển số 29",
+    "Hình 32: Không hiển thị thông tin biển số (do cấu hình không bật nhận diện) 29",
+    "Hình 33: Thông tin hiển thị trên làn xe 30",
+    "Hình 34: Minh họa mô hình P2P 30",
+    "Hình 35: Cấu hình P2P 31",
+    "Hình 36: Tải lại dữ liệu ở client 31",
+    "Hình 37: Cho xe ra ở server 32",
+    "Hình 38: Cho xe ra ở Client 33",
+    "Hình 39: Kết nối ở client 33",
+    "Hình 40: Client mất kết nối với Server 33",
+    "Hình 41: Truy cập vào services 34",
+    "Hình 42: Start service carparking 34",
+    "Hình 43: Kiểm tra /hc trên website 35",
+    "Hình 44: Go2rtc đang hoạt động 36",
+    "Hình 45: Camera-service đang hoạt động 36",
+    "Hình 46: Ping ip thiết bị 37",
+    "Hình 47: Nguyên nhân thường gặp và hướng xử lý nhanh 38",
+    "Hình 48: Biển số xe bị bóng 39",
+    "Hình 49: Biển số xe bị che 39",
+    "Hình 50: Biển số bị mờ 40",
+    "Hình 51: Áp dụng tính tiền 41",
+    "Hình 52: Đặt lại block giá theo ngày 42",
+    "Hình 53: Tắt hiển thị thiếu vào ra 43",
+    "Hình 54: Nhật kí hoạt động 44",
+    "Hình 55: Trang web bị treo 44",
+    "Hình 56: Không đăng nhập được vào trang web 45",
+    "Hình 57: mở file appsettings 46",
+    "Hình 58: Thông tin trong appsetting 46"
+  ],
+  "introBlocks": [
+    {
+      "type": "image",
+      "style": "Normal",
+      "images": [
+        "/assets/handbook/image1.png"
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "Mục tiêu sử dụng tài liệu",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tài liệu này được xây dựng nhằm tổng hợp các lưu ý kỹ thuật, kinh nghiệm triển khai và các tình huống thường gặp trong quá trình vận hành hệ thống ParknGo.",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mục tiêu của tài liệu bao gồm:",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Lưu trữ các kiến thức và kinh nghiệm thực tế phục vụ công tác triển khai, vận hành và hỗ trợ khách hàng.",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ghi chú các cấu hình, quy trình và thông tin kỹ thuật cần lưu ý để giảm thiểu sai sót trong quá trình làm việc.",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tổng hợp các lỗi thường gặp, nguyên nhân và hướng xử lý, đặc biệt là các trường hợp phát sinh do cấu hình, môi trường hoặc quy trình vận hành, không phải do lỗi của phần mềm.",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Chuẩn hóa cách kiểm tra và xử lý sự cố, giúp các thành viên có thể nhanh chóng xác định nguyên nhân và đưa ra phương án khắc phục phù hợp.",
+      "style": "Normal"
+    },
+    {
+      "type": "paragraph",
+      "text": "Là tài liệu tham khảo nội bộ phục vụ việc chia sẻ kiến thức giữa Team ESC và Team SDx.",
+      "style": "Normal"
+    }
+  ],
+  "sections": [
+    {
+      "id": "chuyen-oi-database-tu-he-thong-cu-sang-he-thong-parkngo",
+      "title": "Chuyển đổi database từ hệ thống cũ sang hệ thống ParknGo",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Đối với các dự án chuyển đổi phần mềm cần lưu ý các thông tin trong mục “Chuyển đổi dữ liệu”:",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image2.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 1: Tính năng chuyển đổi dữ liệu",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Để chuyển đổi dữ liệu không bị lỗi Phải cấu hình các thông tin sau:",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "Cấu hình mạch điều khiển.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Cấu hình làn kiểm soát.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Cấu hình màn hình giám sát.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Cấu hình giá tiền vé lượt, vé tháng (đối với chung cư vé tháng được tính với phí quản lý thì sẽ cấu hình 0đ).",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Cấu hình cổng.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Cấu hình bãi đỗ.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "paragraph",
+          "text": "Phải đầy đủ thông tin trên thì mới có thể chuyển đổi dữ liệu thành công.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image3.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 2: Cấu hình các thông tin cần thiết",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Thứ tự danh mục chuyển đổi dữ liệu:",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "Chuyển đổi thẻ: bao gồm thẻ tháng, lượt và VIP từ hệ thống cũ qua hệ thống ParknGo lưu thông tin thẻ, xe và hồ sơ người dùng.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Đồng bộ trạng thái xe đang còn trong bãi: xe còn trong bãi xe được hiển thị trong “Báo cáo xe còn trong bãi” các xe còn trong bãi sẽ đi ra bình thường.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Chuyển đổi nhật ký sự kiện: bao gồm các báo cáo vào ra chi tiết của toàn bộ data.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image4.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 3: Chuyển đổi database",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Để lấy được thông tin kết nốt với database SQL server của phần mềm cũ:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vào SQL Server Management Studio chọn vào show Databases chuột phải vào database name cần chuyển đổi chọn “New Query”.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image5.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 4: SQL Server",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Truy vấn theo thông tin sau để lấy thông tin:",
+          "style": "Normal"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "SELECT @@SERVERNAME AS Host, DB_NAME() AS DatabaseName, SYSTEM_USER AS TaiKhoan; EXEC xp_instance_regread N'HKEY_LOCAL_MACHINE', N'SOFTWARE\\Microsoft\\Microsoft SQL Server\\MSSQLServer\\SuperSocketNetLib\\Tcp\\IPAll', N'TcpPort';"
+            ]
+          ]
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image6.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 5: Truy vấn dữ liệu trong Database",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Điền các thông tin trên vào trong “Host”, “Port”, “Database”, “Tài khoản”, “Mật khẩu” trong “Chuyển đổi thẻ”, “Đồng bộ trạng thái xe còn trong bãi”, “Chuyển đổi Nhật ký sự kiện”.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image7.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 6: Điền thông tin cấu hình database",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tiếp theo, chọn loại xe theo thẻ xe đối với thẻ tháng thì phải chọn loại xe thuộc trong thẻ tháng, tương tự như thẻ lượt và VIP",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image8.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 7: Chọn loại xe cho thẻ xe",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Chọn “Tải dữ liệu” sẽ hiển thị ra toàn bộ danh thẻ (bao gồm thông tin, số lượng, thẻ hợp lệ, thẻ không hợp lệ…)",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image9.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 8: Hiển thị và kiểm tra thông tin thẻ",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sau khi kiểm tra dữ liệu xong sẽ đồng bộ dữ liệu bằng cách nhấn vào nút “Import vào hệ thống”. Sẽ mất khoảng vài chục giây đến vài phút để hoàn tất chuyển đổi dữ liệu.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image10.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 9: Import dữ liệu vào hệ thống",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Có thể kiểm tra ở trang “Quản lý thẻ tháng”, “Quản lý thẻ lượt” và “Quản lý thẻ VIP” để kiểm tra thông tin vừa import vào.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tư tự như trên, sẽ thao tác tương tự cho “Đồng bộ trạng thái xe còn trong bãi” và “Chuyển đổi nhật ký sự kiện”.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "“Đồng bộ trạng thái xe còn trong bãi” sau khi đồng bộ xong vào “Báo cáo xe còn trong bãi” để kiểm tra dữ liệu.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lưu ý: Phần mềm cũ trong báo cáo xe còn trong bãi các các thẻ lượt ko có biển (do không nhận diện được biển số) thì sẽ không thể cộng vào xe trong bãi trong phần mềm mới (mặc dù vẫn có báo cáo đầy đủ, nhưng do không có biển số trong báo cáo) Khi xe đi ra cũng sẽ không trừ đi (tổng xe trong bãi sẽ không thay đổi khi xe lượt không có biển số được ghi nhận đi ra).",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nguyên nhân: Là phần mềm cũ đang quản lý theo thẻ xe còn phần mềm ParknGo đang quản lý theo thẻ xe, thông tin xe và chủ xe.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Riêng phần “Chuyển đổi nhật ký sự kiện” sẽ có thêm phần giới hạn chuyển dữ liệu.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image11.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 10: Giới hạn ngày đồng bộ",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Giới hạn ngày đồng bộ: sẽ chọn dữ liệu từ ngày được chọn sang phần mềm ParnkGo để hiển thị.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Việc chọn khoảng thời gian quá dài có thể khiến việc chuyển đổi diễn ra rất lâu (có thể kéo dài cả 1h đồng hồ), thậm chí là gây đơ và lag máy server.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Đối với “Chuyển đổi nhật ký sự kiện” sau khi đồng bộ xong vào “Báo cáo chi tiết xe vào ra” để kiểm tra dữ liệu.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Đồng bộ hình ảnh: Chỉ có thể đồng bộ hình ảnh xe còn trong bãi chứ không thể đồng bộ tòa bộ ảnh vào ra chi tiết ở phần mềm cũ sang phần mềm mới được.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image12.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 11: Đồng bộ hình ảnh xe trong bãi",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "“Đường dẫn nguồn” là đường dẫn lưu các hình ảnh xe còn trong bãi ở phần mềm cũ trên máy server.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nếu chuyển đổi sai dữ liệu: Thứ tự hoặc thông tin data (VD: chưa cấu hình tiền, cổng, mạch, hoặc import sai database name…) thì có thể xóa data và chuyển đổi lại từ đầu bằng cách chọn “Đặt lại dữ liệu di chuyển”:",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image13.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 12: Đặt lại dữ liệu vừa mới chuyển đổi (xóa dữ liệu)",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vì tính năng “Đặt lại dữ liệu di chuyển” sẽ xóa toàn bộ dữ liệu thẻ, xe, hồ sơ và báo cáo nên cần cân nhắc và thao tác đúng (mặc dù tính năng này đã ràng buộc nhập mật khẩu rất kỹ nhưng cần lưu ý khi sử dụng), chỉ xóa dữ liệu khi chuyển đổi bị sai.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image14.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 13: Nhập mật khẩu để xóa dữ liệu",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mật khẩu để xác thực (chỉ Team ESC và Team SDx biết thông tin):",
+          "style": "Normal"
+        },
+        {
+          "type": "table",
+          "rows": [
+            [
+              "Mật khẩu 1: @CarParkingSDx#! Mật khẩu 2: @NoBugNoHappy#!"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phan-quyen-theo-trang-an-vo-trang-nao-la-luu-lai-cac-nut-cua-trang-o-lien",
+      "title": "Phân quyền theo trang, ấn vô trang nào là lưu lại các nút của trang đó liền.",
+      "blocks": []
+    },
+    {
+      "id": "tao-them-quyen",
+      "title": "Tạo thêm quyền",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Khi tạo “Thêm mới” một quyền phải ấn nút lưu trước rồi mới chọn phân trang theo quyền vừa tạo.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image15.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 14: Nút lưu phân quyền theo trang",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "at-lai-mat-khau-mk-mac-inh-luon-la-123456",
+      "title": "Đặt lại mật khẩu (MK mặc định luôn là 123456)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chỉ có Admin và user được phân quyền chức năng đặt lại mật khẩu thì mới có thể “Đặt lại mật khẩu” cho tài khoản người dùng khác bị quên mật khẩu.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mật khẩu mặt định sẽ luôn là “123456”, người dùng sau khi được đặt lại mật khẩu nên đăng nhập vào tài khoản của mình và tự đổi mật khẩu để bảo vệ thông tin.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image16.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 15: Đặt lại mật khẩu cho tài khoản",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "cau-hinh-the-vip-nhan-dien-bien-so-va-khong-nhan-dien-bien-so",
+      "title": "Cấu hình thẻ VIP (nhận diện biển số và không nhận diện biển số).",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "VIP - nhận diện biển số dùng để ghi nhận các các xe có biển và cần sử dụng thẻ VIP.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "VIP - không nhân diện biển số dùng để ghi nhận các xe không biển (VD: xe rác, xe đẩy…).",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tích vào ô “Nhận diện biển số” mặc định thẻ VIP sẽ nhận diện biển số.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image17.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 16: Nút nhận diện biển số",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mọi thông tin sử dụng thẻ VIP khi đi qua làn xe sẽ được phần mềm ghi nhận lại và nằm trong “Báo cáo sử dụng thẻ VIP”.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image18.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 17: Báo cáo sử dụng thẻ VIP",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "cau-hinh-cong-lien-quan-en-ve-thang",
+      "title": "Cấu hình cổng (liên quan đến vé tháng)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Khi đăng ký “Vé tháng” mặc định sẽ tự động tích vào “Vào ra tất cả các cổng” xe được phép đi lại cở các cổng và làn xe được chọn.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nếu chỉ muốn vé tháng đi vào cổng được chỉ định thì tắt “Vào ra tất cả các cổng” và chọn đổng được chỉ định đi ra vào.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image19.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 18: Vào ra tất cả các cổng",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Khi cấu hình “Cấu hình cổng” chọn làn xe thuộc cổng đó.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image20.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 19: Cấu hình làn trong cổng",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Cấu hình sai ở làn vận hành sẽ thông báo “Thẻ không dùng được cho cổng này” khi xe quẹt thẻ.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image21.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 20: Cảnh báo hiển thị ở client (vận hành)",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "phan-mem-ket-noi-voi-mach-phai-co-port-ip",
+      "title": "Phần mềm kết nối với mạch phải có PORT IP",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phần mềm server và client sẽ kết nối với mạch bình thường khi kết nối TCP/IP ngoài phải có địa chỉ IP ra còn phải có thêm PORT IP kết nối thành công.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Khi tạo “Mạch điều khiển” mới, nếu không nhập thông tin đầy đủ các trường dữ liệu bắt buộc sẽ hiển thị cảnh báo để nhắc nhở.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image22.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 21: Nhập thông tin port ip vào mạch điều khiển",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "device-gateway",
+      "title": "Device Gateway",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ngoài ra có thể kiểm tra thêm “Device Gateway”",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Device Gateway là một dịch vụ trung gian (middleware/service) đứng giữa phần mềm CarParking Server và các thiết bị phần cứng như: Bộ điều khiển cửa (Controller: RES-C4, C3-200,...), Đầu đọc thẻ RFID…",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Thay vì phần mềm Server phải giao tiếp trực tiếp với từng SDK của từng hãng (Finetech, Suprema, Hikvision...), Server chỉ giao tiếp với Device Gateway.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image23.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 22: Minh họa thông tin device gateway",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image24.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 23: Minh họa thông tin kiến trúc tổng thể thông qua device gateway",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Để mở “Device Gateway” kiểm tra thông tin ngay góc dưới thanh taskbar bên phải:",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image25.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 24: Device gateway ở taskbar",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Chuột phải vào logo và chọn “Admin”:",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image26.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 25: Chọn Admin để xem chi tiết Device gateway",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image27.png"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Toàn bộ thông tin sẽ được hiển thị và ghi log lại.",
+          "style": "Normal"
+        },
+        {
+          "type": "caption",
+          "text": "Hình 26: Chi tiết thông tin trong Device gateway",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image28.png"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Ví dụ tìm kiếm kết nốt mạch có đang hoạt động.",
+          "style": "Normal"
+        },
+        {
+          "type": "caption",
+          "text": "Hình 27: Thông tin kết nối mạch trong Device gateway",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image29.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 28: Minh họa xem thông tin kết nối mạch thông qua Device gateway",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "mo-barrier-tu-ong-thu-cong",
+      "title": "Mở barrier tự động – thủ công",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Trong cấu hình “Cấu hình làn kiểm soát” đối với vé tháng nếu tích vào “Tự động” mở barrier ở mục “Điều khiển barrier” thì khi thẻ tháng và VIP đi qua sẽ tự động mở barrier nếu hợp lệ.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image30.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 29: Tự động mở barrier",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nếu muốn mở tự động barrier đối với vé lượt, thì sẽ tích vào “Mở barrier tự động khi sử dụng vé lượt” trong phần “Hệ thống” “Mở barrier tự động khi sử dụng vé lượt” và bật lên (Lưu ý: tự động mở barrier sẽ được cấu hình ở Client – vận hành).",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image31.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 30: Cấu hình mở barrier tự động với vé lượt",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "nhan-dien-bien-so",
+      "title": "Nhận diện biển số",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cấu hình làn kiểm soát nếu không bật “Nhận diện biển số” thì khi xe ra vào hệ thống sẽ không nhận diện biển số xe và hiển thị lên màn hình.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image32.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 31: Nhận diện biển số",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image33.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 32: Không hiển thị thông tin biển số (do cấu hình không bật nhận diện)",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "hien-thi-thong-tin-o-lan-van-hanh",
+      "title": "Hiển thị thông tin ở làn vận hành",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nếu Client vận hành không hiển thị đầy đủ thông tin trên làn xe, tổng xe và doanh thu, rất có thể chưa bật thông tin trong “Hệ thống” lên.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image34.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 33: Thông tin hiển thị trên làn xe",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "ong-bo-p2p-peer-to-peer",
+      "title": "Đồng bộ P2P (Peer-to-Peer)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Phần mềm ParknGo giữa các máy client là mô hình trong đó hai máy client giao tiếp và trao đổi dữ liệu trực tiếp với nhau, thay vì phải đi qua một server trung gian.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image35.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 34: Minh họa mô hình P2P",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Trong “Hệ thống” luôn luôn bật cấu hình P2P lên.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image36.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 35: Cấu hình P2P",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "tai-lai-du-lieu-o-client",
+      "title": "Tải lại dữ liệu ở Client",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Chỉ “Tải lại dữ liệu” ở các máy client – vận hành khi vừa mới cấu hình hoặc thay đổi giá tiền, làn xe, ca làm việc, các thiết bị, thông, quyền thao tác client…",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Đối với site có dữ liệu thẻ nhiều thì việc tải dữ liệu sẽ lâu hơn, thậm chí mất vài chục giây đến một phút.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image37.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 36: Tải lại dữ liệu ở client",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "“Tải dữ liệu” khác với “Cập nhật”:",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "Tải dữ liệu: Tải lại toàn bộ dữ liều từ server lên client.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Cập nhật dữ liệu: Giống như là làm mới lại trang (giống với làm mới trang ở các website).",
+          "style": "List Paragraph"
+        }
+      ]
+    },
+    {
+      "id": "cho-xe-ra-xe-bi-mat-the",
+      "title": "Cho xe ra (xe bị mất thẻ)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Tính năng cho xe ra không cần thẻ chỉ thực hiện được ở trong “Báo cáo xe còn trong bãi” và người được phân quyền mới có thể thực hiện được thao tác này.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sẽ có 2 trường hợp cho xe ra không thẻ:",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "Cho xe ra ở Server (thực hiện ở server): Chỉ cho xe ra ngay lập tức mà không quan tâm đến phí tiền gửi của xe đó, xe được ra làn nào.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image38.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 37: Cho xe ra ở server",
+          "style": "Caption"
+        },
+        {
+          "type": "list-item",
+          "text": "Cho xe ra ở Client: Chỉ cho xe ra ngay lập tức khi cho xe ra quan tâm đến giá tiền cần thu lại và trực tiếp hỗ trợ cho xe ra tại làn.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Các bước thực hiện: Tìm xe cần cho ra trong “Báo cáo xe còn trong bãi” “Báo mất thẻ” “Cho xe ra”.",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image39.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 38: Cho xe ra ở Client",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "client-ket-noi-voi-server-phan-cung---ip",
+      "title": "Client kết nối với server (phần cứng - IP)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Kiểm tra các kết nối hiển thị ở các máy Client do mất mạng, không được kết nối vào mạng.",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "IP đó có đang hoạt động hay không?",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Máy client có kết nối tới thiết bị/server đó không?",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Mạng có mất kết nối không?",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Độ trễ mạng cao hay thấp?",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image40.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 39: Kết nối ở client",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nếu Server có lỗi hoặc có vấn đề bất thường, các Icon Server sẽ hiển thị màu đỏ như sau:",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image41.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 40: Client mất kết nối với Server",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hãy kiểm tra Services Car Parking Web Server có đang hoạt động hay không bằng cách truy cập vào Services ở Windown:",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image42.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 41: Truy cập vào services",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Chọn start service “Carparking Web Service”",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image43.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 42: Start service carparking",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sau khi start service xong có thể truy cập vào Carparking Server http://localhost:5001 để kiểm tra.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ngoài ra có thể kiểm tra Health Check Endpoint (check service có đang chạy không) bằng URL /hc (VD: “http://localhost:5001/hc”) nếu có chữ “Healthy” là hoạt đồng bình thường.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image44.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 43: Kiểm tra /hc trên website",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lỗi Camera Service / go2rtc / Device Gateway",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Đây là nhóm dịch vụ trung gian chịu trách nhiệm nhận hình ảnh camera và giao tiếp với thiết bị (Board, Barrier, Reader, I/O...).",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Khi một trong các service này gặp lỗi, thiết bị vẫn có thể ping được nhưng phần mềm không nhận được dữ liệu hoặc không điều khiển được thiết bị.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Biểu hiện Camera Service / go2rtc:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Client không hiển thị hình camera.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Không chụp được ảnh xe vào/ra.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Stream RTSP chập chờn hoặc mất hoàn toàn.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Camera ping được nhưng phần mềm không lấy được hình.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Vào “Task Manager” tìm camera-service và go2rtc để kiểm tra có đang được running hay không.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image45.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 44: Go2rtc đang hoạt động",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image46.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 45: Camera-service đang hoạt động",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiểm tra RTSP có đang hoạt động ổn định hay không.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "VLC không xem được",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiểm tra:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Camera",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "RTSP URL",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Username/Password",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Switch",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dây mạng",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "VLC xem được",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiểm tra lại:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "go2rtc",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Camera Service",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiểm tra kết nối camera, mạch bằng Ping IP",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Cách kiểm tra bằng ping các IP các máy các thiết bị như camera, board mạch, server để xem có đang hoạt động ổn định hay không.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lưu ý: time trong quá trình Ping IP: time trong quá trình Ping IP nghĩa là gửi gói tin đi và thiết bị trả lời sẽ được tính là tổng thời gian (VD: time<1ms, time<3ms đây là tín hiệu gửi gói tin tốt. Nhưng nếu time<400ms, time<100ms thì đang có vấn đề).",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Việc truyền time lâu hãy kiểm tra các Switch kết nối với các thiết bị.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image47.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 46: Ping ip thiết bị",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kiểm tra đường truyền bằng tool VLC: Để kiểm tra đường truyền stream của camera, đánh giá chất lượng đường truyền RTSP.",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "Check Lost buffers tăng liên tục. hình giật, FPS không ổn định…",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image48.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 47: Nguyên nhân thường gặp và hướng xử lý nhanh",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "cac-truong-hop-ai-nhan-dien-bien-so-xe-bi-sai",
+      "title": "Các trường hợp AI nhận diện biển số xe bị sai",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ánh sáng, biển số xe bị mờ, mất biển, biển số bị che… sẽ làm ảnh hưởng đến AI nhận diện biển số.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Việc này sẽ cần điều chỉnh lại Camera, ánh sáng, hoặc điều chỉnh cho biển số xe gần với camera…",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image49.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 48: Biển số xe bị bóng",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image50.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 49: Biển số xe bị che",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image51.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 50: Biển số bị mờ",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Đối với các trường hợp trên tùy vào từng trường hợp sẽ có hướng xử lý khác nhau (VD: tự nhập tay biển số khi xe vào và ra – đối với biển số bị mờ, hoặc có thể tạo thẻ xe không biển và cấu hình giá tiền như là thẻ vãng lai nếu cần tính tiền vào ra – nhưng không nhận diện biển số, đối với ánh đèn làm bóng biển số có thể giảm độ sáng hoặc người lái xe nên tắt đèn xe, đối với biển bị xe vần điều chỉnh lại hướng xe và biển số để quẹt lại thẻ và chụp lại ảnh biển số…).",
+          "style": "Normal"
+        }
+      ]
+    },
+    {
+      "id": "cau-hinh-tien-phi-gui-xe-the-luot",
+      "title": "Cấu hình tiền (phí gửi xe – thẻ lượt)",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cấu hình tiền nhưng không áp dụng: Đã cấu hình giá tiền nhưng không bật “Áp dụng tính phí” sẽ không tính phí đối với lượt vãng lai.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hãy vào “Cấu hình tính tiền” và bật “Áp dụng tính phí”.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image52.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 51: Áp dụng tính tiền",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Thiết lập lại (reset) chu kỳ tính giá khi sang một ngày mới.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Block giá không reset theo ngày:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "0–1 giờ: 20.000đ",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mỗi giờ tiếp theo: 10.000đ",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Xe vào lúc 23:00 và ra lúc 01:00 hôm sau (2 giờ):",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "23:00 → 00:00 = 20.000đ 00:00 → 01:00 = 10.000đ Tổng = 30.000đ",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hệ thống tính liên tục theo thời gian, không quan tâm đổi ngày.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Reset block giá theo ngày:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Giả sử cấu hình:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mỗi ngày:",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "0–1 giờ đầu: 20.000đ",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "list-item",
+          "text": "Sau đó: 10.000đ/giờ",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "paragraph",
+          "text": "Xe vào lúc 23:00 và ra lúc 01:00 hôm sau:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Ngày 1",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "23:00 → 24:00 = 1 giờ đầu = 20.000đ",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sang 00:00",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Block giá được đặt lại từ đầu:",
+          "style": "Normal"
+        },
+        {
+          "type": "list-item",
+          "text": "00:00 → 01:00 = 1 giờ đầu của ngày mới = 20.000đ",
+          "style": "List Paragraph"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tổng:",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "20.000 + 20.000 = 40.000đ",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image53.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 52: Đặt lại block giá theo ngày",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "bao-cao-vao-ra-chi-tiet",
+      "title": "Báo cáo vào ra chi tiết",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Báo cáo vào ra chi tiết hiển thị các dòng chỉ có xe ra hoặc xe vào Hãy kiểm tra “Hiện dòng thiếu vào/ra” có đang được bật hay không.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nếu đang bật “Hiện dòng thiếu vào/ra” trong báo cáo sẽ hiển thị báo cáo không đầy đủ có cả thông tin vào và ra.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image54.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 53: Tắt hiển thị thiếu vào ra",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "nhat-ki-hoat-ong",
+      "title": "Nhật kí hoạt động",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "“Nhật kí hoạt động” sẽ lưu lại toàn bồ thao tác chỉnh sửa, xóa, thêm thông tin trong các trường dữ liệu.",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nhật kí này chỉ lưu trong vòng 30 ngày (có thể chỉnh sửa được).",
+          "style": "Normal"
+        },
+        {
+          "type": "paragraph",
+          "text": "Nếu có gì bất thường hoặc muốn kiểm tra thông tin mới so với thông tin cũ kiểm tra “Nhật kí hoạt động”.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image55.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 54: Nhật kí hoạt động",
+          "style": "Caption"
+        }
+      ]
+    },
+    {
+      "id": "kiem-tra-cau-hinh-appsettings",
+      "title": "Kiểm tra cấu hình appsettings",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nếu đã kiểm tra các vấn đề services đã start nhưng không thể đăng nhập được vào carparking server Rất có thể nội dung appsettings đã được thay đổi hoặc sai thông tin.",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image56.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 55: Trang web bị treo",
+          "style": "Caption"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image57.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 56: Không đăng nhập được vào trang web",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hãy truy cập vào ổ đĩa C:\\ chọn thư mục Program Files (x86) chọn CarParking Web Server chọn CarParkingServer chọn Pushlish chọn appsettings.Production.json",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image58.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 57: mở file appsettings",
+          "style": "Caption"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hãy mở file ra và kiểm tra ConnectionStrings DefaultConnection (đây là nơi lưu thông tin server, port, database, userId và password của phần mềm server).",
+          "style": "Normal"
+        },
+        {
+          "type": "image",
+          "style": "Normal",
+          "images": [
+            "/assets/handbook/image59.png"
+          ]
+        },
+        {
+          "type": "caption",
+          "text": "Hình 58: Thông tin trong appsetting",
+          "style": "Caption"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "sectionCount": 20,
+    "figureCount": 58
+  }
+}
